@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: disney-app
+  labels:
+    app: disney-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: disney-app
+  template:
+    metadata:
+      labels:
+        app: disney-app
+    spec:
+      containers:
+      - name: disney-app
+        image: surajpjoshi/disney:latest
+        ports:
+        - containerPort: 3000
